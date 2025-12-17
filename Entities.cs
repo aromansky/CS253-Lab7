@@ -23,7 +23,7 @@ namespace CS253_Lab7
 
         public override string ToString()
         {
-            return $"f{ID} - {Description}";
+            return $"f{ID} - {Description} - {Confidence}";
         }
     }
 
@@ -127,6 +127,11 @@ namespace CS253_Lab7
         public Fact GetFactById(int factId)
         {
             return Facts.FirstOrDefault(f => f.ID == factId);
+        }
+
+        public Fact GetFactByDescription(string description)
+        {
+            return Facts.FirstOrDefault(f => f.Description.ToLower() == description.ToLower());
         }
 
         public void ParseTargetFact(string path)
